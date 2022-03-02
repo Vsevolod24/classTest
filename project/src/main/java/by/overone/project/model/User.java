@@ -1,9 +1,10 @@
 package by.overone.project.model;
 
 import lombok.*;
+import org.springframework.validation.annotation.Validated;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.util.Collection;
 
 @Entity
 @Data
@@ -24,5 +25,8 @@ public class User {
 
     @Column
     private String age;
+
+    @ManyToMany
+    private Collection<Parent> parent;
 
 }

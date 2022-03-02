@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
     <title>Home</title>
@@ -17,11 +17,11 @@ Welcome to home page!!!
     </thead>
     <tbody>
     <tr th:each="user : ${users}">
-    <td th:text="${user.name}"></td>
-    <td th:text="${user.secondName}"></td>
-    <td th:text="${user.age}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.secondName}"></td>
+        <td th:text="${user.age}"></td>
         <td>
-            <a th:ref="">Edit</a>
+            <a th:href="@{user-edit/{id}(id=${user.id})}">Edit</a>
         </td>
         <td>
             <a th:href="@{user-delete/{id}(id=${user.id})}">Delete</a>
@@ -29,5 +29,9 @@ Welcome to home page!!!
     </tr>
     </tbody>
 </table>
+    <form action="/search">
+        <input name="searchParam" type="search" placeholder="Введите текст" aria-label="Search">
+        <button type="submit">Search</button>
+    </form>
 </body>
 </html>
